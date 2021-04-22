@@ -3,6 +3,7 @@ import time
 
 import tensorflow as tf
 from numpy.random import seed
+import anylearn
 
 from dataset import load_data_local, build_tf_dataset
 
@@ -23,6 +24,7 @@ class EpochEndCallback(tf.keras.callbacks.Callback):
     def on_epoch_end(self, epoch, logs=None):
         acc = logs['val_acc'] if 'val_acc' in logs else logs['val_accuracy']
         print(f"Current acc: {acc}")
+        anylearn.report_intermediate_metric(acc)
 
 
 if __name__ == '__main__':
@@ -82,6 +84,7 @@ if __name__ == '__main__':
 
     # Test
     test_loss, test_acc = model.evaluate(dset_test, verbose=2)
+    anylearn.report_final_metric(test_acc)
 
     # Save
     model.save(_model_dir)
