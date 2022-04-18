@@ -38,9 +38,9 @@ if __name__ == '__main__':
     _batch_size = args.batch_size
     _learning_rate = args.lr
     _epochs = args.epochs
-    _log_dir = f'./logs'
-    _ckpt_dir = f'./ckpt'
-    _model_dir = f'./model'
+    _log_dir = f'./output/logs'
+    _ckpt_dir = f'./output/ckpt'
+    _model_dir = f'./output/model'
 
     # Load raw data
     (X_train, y_train), (X_test, y_test) = load_data_local(path=args.data_path)

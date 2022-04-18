@@ -1,2 +1,1 @@
-./lib/anylearn-0.11a11-py3-none-any.whl
-tensorflow==2.3.0;
+anylearn
